@@ -22,10 +22,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import {
-  INSTITUTION_LINE,
-  TOOLKIT_VERSION_LABEL,
-} from '@/content/institution'
 import { cn } from '@/lib/utils'
 
 const SECTION_CARDS = [
@@ -151,9 +147,6 @@ export function HomePage() {
           }}
         />
         <div className="relative mx-auto max-w-3xl space-y-5 text-center md:text-left">
-          <p className="text-primary text-xs font-semibold tracking-wide uppercase sm:text-sm">
-            {TOOLKIT_VERSION_LABEL} · {INSTITUTION_LINE}
-          </p>
           <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
             BC physicians &amp; residents
           </p>
