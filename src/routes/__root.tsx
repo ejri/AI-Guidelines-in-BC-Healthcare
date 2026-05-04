@@ -10,10 +10,7 @@ import { Menu, Moon, Sun } from 'lucide-react'
 import { SiteSearch } from '@/components/SiteSearch'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import {
-  INSTITUTION_LINE,
-  TOOLKIT_VERSION_LABEL,
-} from '@/content/institution'
+import { TOOLKIT_VERSION_LABEL } from '@/content/institution'
 import { cn } from '@/lib/utils'
 
 const THEME_STORAGE_KEY = 'bc-rai-toolkit-theme'
@@ -56,7 +53,7 @@ function readInitialTheme(): boolean {
 }
 
 function RootLayout() {
-  const [dark, setDark] = useState(readInitialTheme)
+  const [dark, setDark] = useState(() => readInitialTheme())
   const [navOpen, setNavOpen] = useState(false)
 
   const toggleTheme = () => {
@@ -189,9 +186,7 @@ function RootLayout() {
               Privacy notice
             </Link>
             {' · '}
-            <span className="text-foreground/90">{TOOLKIT_VERSION_LABEL}</span>
-            {' · '}
-            {INSTITUTION_LINE} (teaching use).
+            <span className="text-foreground/90">{TOOLKIT_VERSION_LABEL}</span>.
           </p>
         </div>
       </footer>
