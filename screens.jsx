@@ -19,10 +19,9 @@ function HomeScreen({ go, profile, setProfile, bookmarks, toggleBookmark, cardSt
       <div className="hero">
         <div className="hero-grid">
           <div>
-            <div className="eyebrow" style={{marginBottom: 14}}>BC AI Policy Hub · Faculty of Medicine</div>
             <h1 className="h-display">
               AI guidance for BC<br/>
-              healthcare, <em>without the wall of text.</em>
+              healthcare, <em>simplified</em>
             </h1>
             <p className="lede" style={{marginTop: 18}}>
               One place to find the AI principles, policies and college guidance that apply to your role and your organization.
@@ -95,6 +94,9 @@ function HomeScreen({ go, profile, setProfile, bookmarks, toggleBookmark, cardSt
                     <div style={{flex:1, minWidth:0}}>
                       <div style={{fontWeight:500, fontSize:13.5}}>{o.short}</div>
                       <div className="soft" style={{fontSize:11.5, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap"}}>{o.name}</div>
+                      {o.infoUrl && (
+                        <a href={o.infoUrl} className="org-browse-link" style={{fontSize:11, marginTop:6, display:"inline-block"}} target="_blank" rel="noopener noreferrer" onClick={(e)=>e.stopPropagation()}>Organization site ↗</a>
+                      )}
                     </div>
                     {count > 0 && <span className="mono soft" style={{fontSize:11}}>{count}</span>}
                   </div>
@@ -181,7 +183,12 @@ function ResultsScreen({ go, profile, setProfile, bookmarks, toggleBookmark, car
             <div className="rail-list">
               {orgCounts.filter(o=>o.count>0).map(o => (
                 <div key={o.id} className="rail-item" data-on={profile.org===o.id} onClick={()=>setProfile({...profile, org: profile.org===o.id?null:o.id})}>
-                  <span className="check"></span><span>{o.short}</span><span className="ct">{o.count}</span>
+                  <span className="check"></span><span>{o.short}</span>
+                  {o.infoUrl && (
+                    <a href={o.infoUrl} className="rail-ext" title="Organization information" aria-label={`Open ${o.short} organization site`}
+                      target="_blank" rel="noopener noreferrer" onClick={(e)=>e.stopPropagation()}>↗</a>
+                  )}
+                  <span className="ct">{o.count}</span>
                 </div>
               ))}
             </div>
@@ -349,13 +356,22 @@ function DetailScreen({ go, id, bookmarks, toggleBookmark }) {
         </div>
         <aside>
           <div className="aside-card">
-            <div className="aside-row"><span className="k">Source</span><span className="v">{org.short}</span></div>
+            <div className="aside-row">
+              <span className="k">Source</span>
+              <span className="v" style={{textAlign:"right"}}>
+                {org.infoUrl ? (
+                  <a href={org.infoUrl} className="dim-on-hover" style={{fontWeight:500}} target="_blank" rel="noopener noreferrer">{org.name} ↗</a>
+                ) : (
+                  org.short
+                )}
+              </span>
+            </div>
             <div className="aside-row"><span className="k">Region / scope</span><span className="v">{g.region}</span></div>
             <div className="aside-row"><span className="k">Last updated</span><span className="v">{fmt(g.updated)}</span></div>
             <div className="aside-row"><span className="k">Verified by hub</span><span className="v">{fmt(g.verified)}</span></div>
             {g.pages && <div className="aside-row"><span className="k">Length</span><span className="v">{g.pages} pages</span></div>}
             <div className="aside-actions">
-              <button className="btn btn-outline btn-sm"><span>Open full document</span><span>↗</span></button>
+              <button type="button" className="btn btn-outline btn-sm" onClick={()=>window.open(g.sourceUrl,"_blank")}><span>Open full document</span><span>↗</span></button>
               <button className="btn btn-outline btn-sm"><span>Download PDF</span><span>⤓</span></button>
               <button className="btn btn-outline btn-sm" onClick={()=>toggleBookmark(g.id)}><span>{isBookmarked?"Remove bookmark":"Bookmark"}</span><span>{isBookmarked?"★":"☆"}</span></button>
               <button className="btn btn-outline btn-sm"><span>Share with team</span><span>→</span></button>

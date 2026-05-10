@@ -319,6 +319,15 @@ input, select, textarea { font: inherit; color: inherit; }
 .org-tile.accent { background: var(--accent-warm-soft); color: var(--accent-warm); border-color: transparent; }
 .org-tile-sm { width: 28px; height: 28px; font-size: 9.5px; border-radius: 7px; }
 .org-tile-lg { width: 56px; height: 56px; font-size: 13px; border-radius: 14px; }
+.org-tile-wrap {
+  display: inline-flex;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+}
+.org-tile-wrap:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.org-browse-link { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+.org-browse-link:hover { filter: brightness(1.06); }
 
 /* Scope badge */
 .scope {
@@ -369,6 +378,8 @@ input, select, textarea { font: inherit; color: inherit; }
 .gcard p { margin: 0; color: var(--fg-mute); font-size: 13.5px; line-height: 1.5; }
 .gcard .meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12px; color: var(--fg-soft); }
 .gcard .meta-org { color: var(--fg-mute); font-weight: 500; }
+a.meta-org.org-meta-link { color: var(--fg-mute); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+a.meta-org.org-meta-link:hover { color: var(--fg); }
 .gcard .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
 .gcard .actions { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
 
@@ -404,6 +415,17 @@ input, select, textarea { font: inherit; color: inherit; }
 }
 .rail-item[data-on="true"] .check { background: var(--fg); border-color: var(--fg); }
 .rail-item[data-on="true"] .check::after { content: ""; width: 6px; height: 3px; border-left: 1.5px solid var(--bg); border-bottom: 1.5px solid var(--bg); transform: rotate(-45deg) translate(0px, -1px); }
+.rail-item .rail-ext {
+  flex: none;
+  margin-left: 2px;
+  font-size: 11px;
+  color: var(--primary);
+  text-decoration: none;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+.rail-item .rail-ext:hover { background: var(--bg-tint); text-decoration: underline; }
 .rail-item .ct { margin-left: auto; font-family: var(--font-mono); font-size: 10.5px; color: var(--fg-soft); }
 
 /* Results header */

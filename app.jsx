@@ -126,7 +126,6 @@ function Nav({ screen, go, bookmarkCount, theme, setTheme, openFeedback }) {
           <span className="brand-mark">bc</span>
           <span className="col" style={{lineHeight:1.1}}>
             <span className="brand-text">AI Policy Hub</span>
-            <span className="brand-sub">BC Healthcare · UBC DASH</span>
           </span>
         </a>
         <nav className="nav-links">
@@ -173,10 +172,10 @@ function Footer() {
         <div>
           <div className="h-section" style={{marginBottom:10}}>About</div>
           <div className="col gap-2" style={{fontSize:13}}>
-            <a className="mute dim-on-hover">UBC Faculty of Medicine</a>
-            <a className="mute dim-on-hover">DASH Cluster</a>
-            <a className="mute dim-on-hover">Privacy & retention</a>
-            <a className="mute dim-on-hover">GitHub repo</a>
+            <a className="mute dim-on-hover" href="https://www.med.ubc.ca/" target="_blank" rel="noopener noreferrer">UBC Faculty of Medicine ↗</a>
+            <a className="mute dim-on-hover" href="https://datascienceandhealth.ubc.ca/" target="_blank" rel="noopener noreferrer">DASH Cluster ↗</a>
+            <a className="mute dim-on-hover" href="https://www.oipc.bc.ca/documents/guidance-documents/3082" target="_blank" rel="noopener noreferrer">Privacy & retention ↗</a>
+            <a className="mute dim-on-hover" href="https://github.com/ejri/AI-Guidelines-in-BC-Healthcare" target="_blank" rel="noopener noreferrer">GitHub repo ↗</a>
           </div>
         </div>
       </div>

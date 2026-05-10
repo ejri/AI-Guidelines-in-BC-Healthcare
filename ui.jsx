@@ -4,7 +4,15 @@ const { useState, useMemo, useEffect } = React;
 // ---------------- Primitives ----------------
 function OrgTile({ org, size }) {
   const klass = "org-tile" + (size === "lg" ? " org-tile-lg" : size === "sm" ? " org-tile-sm" : "") + (org.tinted ? " tinted" : "");
-  return <div className={klass} title={org.name}>{org.short}</div>;
+  const inner = <div className={klass} title={org.infoUrl ? `${org.name} — organization page (new tab)` : org.name}>{org.short}</div>;
+  if (!org.infoUrl) return inner;
+  return (
+    <a className="org-tile-wrap" href={org.infoUrl} target="_blank" rel="noopener noreferrer"
+      title={`${org.name} — open organization information`}
+      onClick={(e) => e.stopPropagation()}>
+      {inner}
+    </a>
+  );
 }
 
 function Topic({ topic }) {
@@ -145,7 +153,11 @@ function GuidelineCard({ g, onOpen, bookmarked, onBookmark, cardStyle }) {
           <OrgTile org={org} size="lg" />
           <div>
             <div className="meta">
-              <span className="meta-org">{org.short}</span>
+              {org.infoUrl ? (
+                <a className="meta-org org-meta-link" href={org.infoUrl} target="_blank" rel="noopener noreferrer" onClick={(e)=>e.stopPropagation()}>{org.short} ↗</a>
+              ) : (
+                <span className="meta-org">{org.short}</span>
+              )}
               <span className="soft">·</span>
               <Scope scope={g.scope} />
               <span className="soft">·</span>
