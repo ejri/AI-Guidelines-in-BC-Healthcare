@@ -1,0 +1,7 @@
+{
+  "name": "bc-ai-policy-hub",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-static.mjs"
+  }
+}
