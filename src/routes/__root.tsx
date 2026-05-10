@@ -18,6 +18,7 @@ const THEME_STORAGE_KEY = 'bc-rai-toolkit-theme'
 const NAV = [
   { to: '/', label: 'Home' },
   { to: '/guidelines', label: 'Guidelines' },
+  { to: '/phsa-ai-research', label: 'PHSA AI research' },
   { to: '/updates', label: 'Updates' },
   { to: '/bc-health-authorities', label: 'BC health system' },
   { to: '/global-comparison', label: 'Global compare' },

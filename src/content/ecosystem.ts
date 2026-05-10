@@ -1,3 +1,5 @@
+import { PHSA_AI_RESEARCH_HUB } from '@/content/external'
+
 export type EcosystemLink = {
   label: string
   href: string
@@ -99,6 +101,12 @@ export const ECOSYSTEM_SECTIONS: EcosystemSection[] = [
         label: 'PHSA: Indigenous Health',
         href: 'https://www.phsa.ca/our-services/programs-services/indigenous-health',
         description: 'Provincial programs and cultural safety materials.',
+      },
+      {
+        label: 'PHSA: Artificial Intelligence in Research',
+        href: PHSA_AI_RESEARCH_HUB,
+        description:
+          'Researcher hub for genAI use cases, mitigations, and links to the AI in Research Working Group; mirrored inside this toolkit as PHSA AI research.',
       },
       {
         label: 'PHSA: Anti-racism accountability',

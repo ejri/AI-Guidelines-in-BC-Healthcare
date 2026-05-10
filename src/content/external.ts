@@ -19,6 +19,9 @@ export const HEALTH_CANADA_AI_MEDICAL_DEVICES =
 
 export const DOCTORS_OF_BC = 'https://www.doctorsbc.ca/'
 
+export const PHSA_AI_RESEARCH_HUB =
+  'https://www.phsa.ca/researcher/resources/artificial-intelligence'
+
 export const PHSA_INDIGENOUS_HEALTH = 'https://www.phsa.ca/our-services/programs-services/indigenous-health'
 
 export const PHSA_ANTI_RACISM = 'https://www.phsa.ca/about-phsa/accountability/anti-racism'
@@ -58,6 +61,12 @@ export const SITE_SEARCH_INDEX: SearchHit[] = [
     to: '/guidelines',
     keywords:
       'cpsbc college ai4h pipa pipeda oipc privacy consent transparency bias oversight canada health',
+  },
+  {
+    title: 'PHSA AI research',
+    to: '/phsa-ai-research',
+    keywords:
+      'phsa generative genai research working group grant review chatgpt literature lay summary code pytorch tensorflow bias privacy plagiarism mitigation toolkit navigating learning hub tri-agency',
   },
   {
     title: 'Checklists & tools',

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UpdatesRouteImport } from './routes/updates'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PhsaAiResearchRouteImport } from './routes/phsa-ai-research'
 import { Route as MythBustingRouteImport } from './routes/myth-busting'
 import { Route as GuidelinesRouteImport } from './routes/guidelines'
 import { Route as GlobalComparisonRouteImport } from './routes/global-comparison'
@@ -29,6 +30,11 @@ const UpdatesRoute = UpdatesRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhsaAiResearchRoute = PhsaAiResearchRouteImport.update({
+  id: '/phsa-ai-research',
+  path: '/phsa-ai-research',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MythBustingRoute = MythBustingRouteImport.update({
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/global-comparison': typeof GlobalComparisonRoute
   '/guidelines': typeof GuidelinesRoute
   '/myth-busting': typeof MythBustingRoute
+  '/phsa-ai-research': typeof PhsaAiResearchRoute
   '/privacy': typeof PrivacyRoute
   '/updates': typeof UpdatesRoute
 }
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/global-comparison': typeof GlobalComparisonRoute
   '/guidelines': typeof GuidelinesRoute
   '/myth-busting': typeof MythBustingRoute
+  '/phsa-ai-research': typeof PhsaAiResearchRoute
   '/privacy': typeof PrivacyRoute
   '/updates': typeof UpdatesRoute
 }
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/global-comparison': typeof GlobalComparisonRoute
   '/guidelines': typeof GuidelinesRoute
   '/myth-busting': typeof MythBustingRoute
+  '/phsa-ai-research': typeof PhsaAiResearchRoute
   '/privacy': typeof PrivacyRoute
   '/updates': typeof UpdatesRoute
 }
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/global-comparison'
     | '/guidelines'
     | '/myth-busting'
+    | '/phsa-ai-research'
     | '/privacy'
     | '/updates'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/global-comparison'
     | '/guidelines'
     | '/myth-busting'
+    | '/phsa-ai-research'
     | '/privacy'
     | '/updates'
   id:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/global-comparison'
     | '/guidelines'
     | '/myth-busting'
+    | '/phsa-ai-research'
     | '/privacy'
     | '/updates'
   fileRoutesById: FileRoutesById
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   GlobalComparisonRoute: typeof GlobalComparisonRoute
   GuidelinesRoute: typeof GuidelinesRoute
   MythBustingRoute: typeof MythBustingRoute
+  PhsaAiResearchRoute: typeof PhsaAiResearchRoute
   PrivacyRoute: typeof PrivacyRoute
   UpdatesRoute: typeof UpdatesRoute
 }
@@ -187,6 +200,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/phsa-ai-research': {
+      id: '/phsa-ai-research'
+      path: '/phsa-ai-research'
+      fullPath: '/phsa-ai-research'
+      preLoaderRoute: typeof PhsaAiResearchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/myth-busting': {
@@ -265,6 +285,7 @@ const rootRouteChildren: RootRouteChildren = {
   GlobalComparisonRoute: GlobalComparisonRoute,
   GuidelinesRoute: GuidelinesRoute,
   MythBustingRoute: MythBustingRoute,
+  PhsaAiResearchRoute: PhsaAiResearchRoute,
   PrivacyRoute: PrivacyRoute,
   UpdatesRoute: UpdatesRoute,
 }

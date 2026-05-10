@@ -4,6 +4,7 @@ import {
   BookOpen,
   Building2,
   ClipboardList,
+  Cpu,
   Globe2,
   Library,
   Map,
@@ -33,6 +34,15 @@ const SECTION_CARDS = [
     icon: BookOpen,
     keywords:
       'cpsbc college physicians surgeons ai4h pipa pipeda oipc consent transparency',
+  },
+  {
+    to: '/phsa-ai-research',
+    title: 'PHSA AI in research (hub mirror)',
+    description:
+      'Structured mirror of PHSA’s genAI-in-research guidance: scenarios, mitigations, tips, PDF, and sibling hub links for trainees and investigators.',
+    icon: Cpu,
+    keywords:
+      'phsa generative genai research working group grant review chatgpt literature lay summary bias privacy',
   },
   {
     to: '/updates',

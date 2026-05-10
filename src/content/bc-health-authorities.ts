@@ -3,6 +3,11 @@
  * Policies change; rely on issuer pages, not this sandbox.
  */
 
+import {
+  PHSA_AI_RESEARCH_CANONICAL,
+  PHSA_AI_RESOURCE_TOOLKIT_PDF,
+} from '@/content/phsaAiResearch'
+
 export type BcAuthority = {
   id: string
   name: string
@@ -106,6 +111,14 @@ export const BC_HEALTH_AUTHORITIES: BcAuthority[] = [
       {
         label: 'PHSA anti-racism accountability',
         href: 'https://www.phsa.ca/about-phsa/accountability/anti-racism',
+      },
+      {
+        label: 'PHSA: Artificial Intelligence in Research',
+        href: PHSA_AI_RESEARCH_CANONICAL,
+      },
+      {
+        label: 'PHSA: AI Research Toolkit (PDF)',
+        href: PHSA_AI_RESOURCE_TOOLKIT_PDF,
       },
     ],
   },
