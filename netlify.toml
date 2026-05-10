@@ -1,0 +1,4 @@
+# Static HTML + JS (no package.json). Overrides dashboard "npm run build" / dist.
+[build]
+  command = "true"
+  publish = "."
