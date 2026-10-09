@@ -20,7 +20,7 @@ Repository: [ejri/AI-Guidelines-in-BC-Healthcare](https://github.com/ejri/AI-Gui
 - **Feedback:** Buttons are present in the UI; outbound submission is turned off until a backend is wired.
 - **Performance:** React 18 and Babel via CDN; no bundler in the browser at runtime. Production build copies static assets to `dist/` for Netlify.
 
-**Sources (illustrative):** Health Canada AI4H, VCH / VCHRI AI Hub, Doctors of BC, CPSBC, BCCNM, OIPC BC, PHSA, CMA, and related issuers. Always confirm wording on the issuer’s site—for example [CPSBC publications](https://www.cpsbc.ca/news/publications/college-connector/2024-V12-05/01) and [OIPC BC news](https://www.oipc.bc.ca/documents/news-releases/3083).
+**Primary BC sources:** [MoH Responsible AI Policy Framework](https://www2.gov.bc.ca/gov/content/health/practitioner-professional-resources/responsible-artificial-intelligence-policy-framework) ([PDF](https://www2.gov.bc.ca/assets/gov/health/practitioner-pro/responsible_ai_policy_framework_final_2026_06.pdf)), [OCIO generative AI policy](https://digital.gov.bc.ca/ai/gen-ai-policy/), [CPSBC AI ethics](https://www.cpsbc.ca/files/pdf/CPSBC-PG-Artificial-Intelligence.pdf), [OIPC PIPA & AI scribes](https://www.oipc.bc.ca/documents/guidance-documents/3082), Doctors of BC, BCCNM, VCH / VCHRI AI Hub, PHSA. **Federal / international:** [AI4H principles](https://www.canada.ca/en/health-canada/corporate/transparency/health-agreements/pan-canadian-ai-guiding-principles.html), [Health Canada MLMD guidance](https://www.canada.ca/en/health-canada/services/drugs-health-products/medical-devices/application-information/guidance-documents/pre-market-guidance-machine-learning-enabled-medical-devices.html), [EU AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) / [Digital Omnibus](https://eur-lex.europa.eu/eli/reg/2026/1744/oj), FDA PCCP, MHRA AI Airlock, TGA AI software, WHO ethics & LMM guidance. Always confirm wording on the issuer’s site.
 
 ## Tech stack
 
@@ -101,8 +101,9 @@ Keep a BC healthcare focus, cite primary sources, and keep the UI easy to scan.
 ## Related links
 
 - [GitHub — AI-Guidelines-in-BC-Healthcare](https://github.com/ejri/AI-Guidelines-in-BC-Healthcare)
+- [BC Responsible AI Policy Framework — gov.bc.ca](https://www2.gov.bc.ca/gov/content/health/practitioner-professional-resources/responsible-artificial-intelligence-policy-framework)
 - [Pan-Canadian AI for Health (AI4H) guiding principles — Canada.ca](https://www.canada.ca/en/health-canada/corporate/transparency/health-agreements/pan-canadian-ai-guiding-principles.html)
 
 ---
 
-*Teaching-style aggregator for Vancouver / BC healthcare contexts. Last updated May 2026.*
+*Teaching-style aggregator for Vancouver / BC healthcare contexts. Last updated October 2026.*

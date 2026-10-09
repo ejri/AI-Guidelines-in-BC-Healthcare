@@ -39,7 +39,7 @@ function App() {
   const [screen, setScreen] = useState("home");
   const [detailId, setDetailId] = useState(null);
   const [profile, setProfile] = useState({ role: "physician", org: null, topics: ["privacy","documentation"] });
-  const [bookmarks, setBookmarks] = useState(["cpsbc-ai-ethics","ai4h-principles"]);
+  const [bookmarks, setBookmarks] = useState(["moh-responsible-ai","cpsbc-ai-ethics","ai4h-principles"]);
   const [fbOpen, setFbOpen] = useState(false);
 
   function go(s, id) {

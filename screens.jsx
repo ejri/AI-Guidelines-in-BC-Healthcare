@@ -24,7 +24,7 @@ function HomeScreen({ go, profile, setProfile, bookmarks, toggleBookmark, cardSt
               healthcare, <em>simplified</em>
             </h1>
             <p className="lede" style={{marginTop: 18}}>
-              One place to find the AI principles, policies and college guidance that apply to your role and your organization.
+              MoH Responsible AI Policy Framework, OCIO gen-AI rules, college guidance, federal AI4H / MLMD expectations, and comparable international frameworks — filtered to your role and organization.
             </p>
           </div>
           <div>
@@ -62,10 +62,31 @@ function HomeScreen({ go, profile, setProfile, bookmarks, toggleBookmark, cardSt
           </div>
         </Section>
 
-        {/* PRINCIPLES MAP */}
+        {/* BC MoH PRINCIPLES */}
         <Section
-          title="The six AI4H principles"
-          subtitle="Pan-Canadian AI for Health. Click a principle to see related guidance.">
+          title="B.C. health-sector Responsible AI principles"
+          subtitle="Eight principles from the Ministry of Health Responsible AI Policy Framework (June 2026). Click to filter guidance."
+          rightLink={{label:"Framework detail →", onClick:()=>go("detail","moh-responsible-ai")}}>
+          <div className="pmap pmap-moh">
+            {(D.MOH_PRINCIPLES || []).map(p => (
+              <div key={p.id} className="pmap-cell" onClick={()=>{
+                setProfile({...profile, topics: [...new Set([...profile.topics, p.topic || mapPrincipleToTopic(p.id)])], org: "moh"});
+                go("results");
+              }}>
+                <div className="row between">
+                  <span className="dot" style={{background: p.color}}></span>
+                  <span className="num">{p.num}</span>
+                </div>
+                <div className="ttl">{p.title}</div>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* AI4H PRINCIPLES MAP */}
+        <Section
+          title="The nine Pan-Canadian AI4H principles"
+          subtitle="Health Canada F/P/T guiding principles. Click a principle to see related guidance.">
           <div className="pmap">
             {principles.map(p => (
               <div key={p.id} className="pmap-cell" onClick={()=>{
@@ -85,7 +106,7 @@ function HomeScreen({ go, profile, setProfile, bookmarks, toggleBookmark, cardSt
         {/* BROWSE BY */}
         <Section title="Browse by source">
           <div className="grid grid-4 gap-3">
-            {D.ORGS.slice(0, 8).map(o => {
+            {D.ORGS.slice(0, 12).map(o => {
               const count = D.GUIDELINES.filter(g => g.org === o.id).length;
               return (
                 <div key={o.id} className="card card-link" data-style={cardStyle} onClick={()=>{ setProfile({...profile, org:o.id}); go("results"); }}>
@@ -136,7 +157,17 @@ function DateStack({ iso }) {
 }
 
 function mapPrincipleToTopic(pid) {
-  const m = { person:"clinical", edi:"bias", privacy:"privacy", safety:"safety", transparency:"transparency", accountability:"accountability" };
+  const m = {
+    person: "clinical",
+    edi: "bias",
+    privacy: "privacy",
+    safety: "safety",
+    transparency: "transparency",
+    accountability: "accountability",
+    literacy: "education",
+    data: "lifecycle",
+    indigenous: "indigenous",
+  };
   return m[pid] || "privacy";
 }
 
@@ -331,6 +362,9 @@ function DetailScreen({ go, id, bookmarks, toggleBookmark }) {
           <p className="lede">{g.summary}</p>
           <div className="row gap-3 wrap" style={{marginTop:18}}>
             <button className="btn btn-primary" onClick={()=>window.open(g.sourceUrl,"_blank")}>Open full document ↗</button>
+            {g.pagesUrl && (
+              <button className="btn btn-outline" onClick={()=>window.open(g.pagesUrl,"_blank")}>Issuer landing page ↗</button>
+            )}
             <button className="btn btn-outline" onClick={()=>toggleBookmark(g.id)}>
               {isBookmarked ? "★ Bookmarked" : "☆ Bookmark"}
             </button>
@@ -372,9 +406,13 @@ function DetailScreen({ go, id, bookmarks, toggleBookmark }) {
             {g.pages && <div className="aside-row"><span className="k">Length</span><span className="v">{g.pages} pages</span></div>}
             <div className="aside-actions">
               <button type="button" className="btn btn-outline btn-sm" onClick={()=>window.open(g.sourceUrl,"_blank")}><span>Open full document</span><span>↗</span></button>
-              <button className="btn btn-outline btn-sm"><span>Download PDF</span><span>⤓</span></button>
+              {g.pagesUrl && (
+                <button type="button" className="btn btn-outline btn-sm" onClick={()=>window.open(g.pagesUrl,"_blank")}><span>Landing page</span><span>↗</span></button>
+              )}
+              {/\.pdf(\?|$)/i.test(g.sourceUrl) && (
+                <button type="button" className="btn btn-outline btn-sm" onClick={()=>window.open(g.sourceUrl,"_blank")}><span>Download PDF</span><span>⤓</span></button>
+              )}
               <button className="btn btn-outline btn-sm" onClick={()=>toggleBookmark(g.id)}><span>{isBookmarked?"Remove bookmark":"Bookmark"}</span><span>{isBookmarked?"★":"☆"}</span></button>
-              <button className="btn btn-outline btn-sm"><span>Share with team</span><span>→</span></button>
             </div>
           </div>
           <div style={{marginTop:24}}>

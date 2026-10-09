@@ -472,6 +472,10 @@ a.meta-org.org-meta-link:hover { color: var(--fg); }
 
 /* Principles map (small grid) */
 .pmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pmap-moh { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) {
+  .pmap, .pmap-moh { grid-template-columns: repeat(2, 1fr); }
+}
 .pmap-cell {
   padding: 14px;
   border: 1px solid var(--border);
