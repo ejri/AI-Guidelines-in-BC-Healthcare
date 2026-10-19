@@ -34,6 +34,24 @@ export const OIPC_AI_SCRIBES =
 export const OIPC_AI_SCRIBES_NEWS =
   'https://www.oipc.bc.ca/documents/news-releases/3083'
 
+export const OIPC_GENAI_TIPS =
+  'https://oipc.bc.ca/documents/guidance-documents/3229'
+
+export const BCCNM_DOCUMENTATION_AI =
+  'https://www.bccnm.ca/RN/PracticeStandards/Pages/documentation.aspx'
+
+export const BCCNM_AI_LEARNING =
+  'https://www.bccnm.ca/RM/learning/artificial-intelligence/Pages/Default.aspx'
+
+export const DOCTORS_BC_AI_SCRIBES =
+  'https://www.doctorsofbc.ca/advice-support/doctors-technology-office/ai-scribe-technologies/practical-considerations-using-ai'
+
+export const HEALTH_CANADA_MLMD_TRANSPARENCY =
+  'https://www.canada.ca/en/health-canada/services/drugs-health-products/medical-devices/transparency-machine-learning-guiding-principles.html'
+
+export const CMA_SENATE_AI_BRIEF_2026 =
+  'https://sencanada.ca/Content/Sen/Committee/451/SOCI/briefs/2026-05-11_SOCI_SS-2_Brief_CMA_e.pdf'
+
 export const GETTING_AHEAD_OF_THE_CURVE =
   'https://bcombudsperson.ca/assets/media/OMB-GettingAheadoftheCurve-v6.pdf'
 

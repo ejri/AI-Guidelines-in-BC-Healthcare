@@ -106,4 +106,4 @@ Keep a BC healthcare focus, cite primary sources, and keep the UI easy to scan.
 
 ---
 
-*Teaching-style aggregator for Vancouver / BC healthcare contexts. Last updated October 2026.*
+*Teaching-style aggregator for Vancouver / BC healthcare contexts. Last re-verified 19 October 2026.*
